@@ -1,13 +1,13 @@
 === Zarinpal Gateway ===
-author: Masoud Amini , alireza yousefi
+author: Masoud Amini , Alireza Yousefi, Amirhossein Taghizadeh
 author URI: http://www.zarinpal.com/
 Contributors: Amini7,aliafi
 Donate link: https://zarinp.al/282383
 Tags: woocommerce,zarinpal, iran, persian, farsi,woocommerce persian, e-commerce, ووکامرس, ووکامرس فارسی,zarinpal woocommerce,بانک زرین پال,درگاه پرداخت,payment gateway,woocommerce payment
-Requires at least: 4.5
-Requires PHP: 7.0.0
-Tested up to: 6.4.2
-Stable tag: 4.9
+Requires at least: 6.0
+Requires PHP: 8.0
+Tested up to: 6.5.2
+Stable tag: 5.0
 
 پرداخت اینترنتی وجه به وسیله درگاه پرداخت واسطه زرین پال
 

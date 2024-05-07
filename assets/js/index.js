@@ -1,39 +1,40 @@
-const settings = window.wc.wcSettings.getSetting( 'WC_ZPal_data', {} );
-const label = window.wp.htmlEntities.decodeEntities( settings.title ) || '';
-
-const { registerPaymentMethod } = window.wc.wcBlocksRegistry
+const ZP_settings = window.wc.wcSettings.getSetting( 'WC_ZPal_data', {} );
+const ZP_label = window.wp.htmlEntities.decodeEntities( ZP_settings.title ) || '';
 
 
 
-const Content = () => {
-    return window.wp.htmlEntities.decodeEntities( settings.description || '' );
+
+const ZP_Content = () => {
+    return window.wp.htmlEntities.decodeEntities( ZP_settings.description || '' );
 };
 
-const Icon = () => {
-    return settings.icon
-        ? React.createElement('img', { src: settings.icon, style: { marginLeft: '20px' } })
+const ZP_Icon = () => {
+    return ZP_settings.icon
+        ? React.createElement('img', { src: ZP_settings.icon, style: { marginLeft: '20px' } })
         : null;
 }
 
-const Label = () => {
+const ZP_Label = () => {
     return React.createElement(
         'span',
         { style: { width: '100%', display: 'flex', gap: '5px' } },
-        label,
-        React.createElement(Icon)
+        ZP_label,
+        React.createElement(ZP_Icon)
     );
 }
 
 
 
-registerPaymentMethod({
-    name: "WC_ZPal",
-    label: React.createElement(Label),
-    content: React.createElement(Content),
-    edit: React.createElement(Content),
+const ZP_Block_Gateway = {
+    name: 'WC_ZPal',
+    label: React.createElement(ZP_Label),
+    content: React.createElement(ZP_Content),
+    edit: React.createElement(ZP_Content),
     canMakePayment: () => true,
-    ariaLabel: "label", // Update this as needed
+    ariaLabel: ZP_label,
     supports: {
-        features: settings.supports,
-    }
-});
+        features: ZP_settings.supports,
+    },
+};
+window.wc.wcBlocksRegistry.registerPaymentMethod( ZP_Block_Gateway );
+console.log(ZP_Block_Gateway)

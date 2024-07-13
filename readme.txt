@@ -6,7 +6,7 @@ Donate link: https://zarinp.al/282383
 Tags: woocommerce,zarinpal, iran, persian, farsi,woocommerce persian, e-commerce, ووکامرس, ووکامرس فارسی,zarinpal woocommerce,بانک زرین پال,درگاه پرداخت,payment gateway,woocommerce payment
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.5.2
+Tested up to: 6.5.5
 Stable tag: 5.0
 
 پرداخت اینترنتی وجه به وسیله درگاه پرداخت واسطه زرین پال

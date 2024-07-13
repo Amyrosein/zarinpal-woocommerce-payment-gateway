@@ -1,7 +1,7 @@
 === Zarinpal Gateway ===
 author: Masoud Amini , Alireza Yousefi, Amirhossein Taghizadeh
 author URI: http://www.zarinpal.com/
-Contributors: Amini7,aliafi
+Contributors: Amini7,aliafi, Amyrosein
 Donate link: https://zarinp.al/282383
 Tags: woocommerce,zarinpal, iran, persian, farsi,woocommerce persian, e-commerce, ووکامرس, ووکامرس فارسی,zarinpal woocommerce,بانک زرین پال,درگاه پرداخت,payment gateway,woocommerce payment
 Requires at least: 6.0
@@ -96,3 +96,4 @@ Stable tag: 5.0
 
 = 5.0.0 =
 رفع مشکل هیچ روش پرداختی در دسترس نیست و اضافه کردن پشتیبانی از بلاک های پرداخت ووکامرس
+آپدیت اندپوینت ها

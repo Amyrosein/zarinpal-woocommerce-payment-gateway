@@ -52,9 +52,10 @@ function Load_ZarinPal_Gateway()
         }
 
         // Woocommerce Block
-        add_action( 'before_woocommerce_init', 'zarinpal_cart_checkout_blocks_compatibility' );
-        add_action( 'woocommerce_blocks_loaded', 'zarinpal_gateway_block_support' );
-        function zarinpal_gateway_block_support() {
+        add_action('before_woocommerce_init', 'zarinpal_cart_checkout_blocks_compatibility');
+        add_action('woocommerce_blocks_loaded', 'zarinpal_gateway_block_support');
+        function zarinpal_gateway_block_support()
+        {
 
             // here we're including our "gateway block support class"
             require_once __DIR__ . '/includes/class-wc-zarinpal-gateway-blocks-support.php';
@@ -62,23 +63,22 @@ function Load_ZarinPal_Gateway()
             // registering the PHP class we have just included
             add_action(
                 'woocommerce_blocks_payment_method_type_registration',
-                function( Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry ) {
-                    $payment_method_registry->register( new WC_Zarinpal_Gateway_Blocks_Support );
+                function (Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
+                    $payment_method_registry->register(new WC_Zarinpal_Gateway_Blocks_Support);
                 }
             );
-
         }
 
-        function zarinpal_cart_checkout_blocks_compatibility() {
+        function zarinpal_cart_checkout_blocks_compatibility()
+        {
 
-            if( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+            if (class_exists('\Automattic\WooCommerce\Utilities\FeaturesUtil')) {
                 \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
                     'cart_checkout_blocks',
                     __FILE__,
                     true // true (compatible, default) or false (not compatible)
                 );
             }
-
         }
 
 
@@ -204,7 +204,7 @@ function Load_ZarinPal_Gateway()
             public function SendRequestToZarinPal($action, $params)
             {
                 try {
-                    $ch = curl_init('https://api.zarinpal.com/pg/v4/payment/' . $action . '.json');
+                    $ch = curl_init('https://payment.zarinpal.com/pg/v4/payment/' . $action . '.json');
                     curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
                     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
@@ -359,7 +359,7 @@ function Load_ZarinPal_Gateway()
 
 
 
-                    header('Location: https://www.zarinpal.com/pg/StartPay/' . $result['data']["authority"]);
+                    header('Location: https://payment.zarinpal.com/pg/StartPay/' . $result['data']["authority"]);
                     exit;
                 } else {
 
